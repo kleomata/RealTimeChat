@@ -1,0 +1,341 @@
+.chat {
+  height: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid rgb(247, 107, 28);
+  gap: 20px;
+}
+.chat-header .image-box {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: relative;
+}
+.chat-header .image-recipient {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+.image-box .isOnline-circle {
+  position: absolute;
+  bottom: 5px;
+  right: -5px;
+  background: #0f0f0f;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #0f0f0f;
+}
+.isOnline-circle .online{
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 255, 0);
+  border-radius: 50%;
+}
+.isOnline-circle .offline{
+  width: 100%;
+  height: 100%;
+  background: #3a3a3a;
+  border-radius: 50%;
+}
+
+
+
+.chat-header .text {
+  display: flex;
+  flex-direction: column;
+}
+.chat-header .username {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+
+.chat-header .text .time {
+  color: #ccc;
+  font-size: 15px;
+}
+
+
+.chat-box {
+  margin-bottom: 20px;
+  height: calc(100% - 180px);
+  overflow-y: scroll;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.date-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.date-divider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+}
+.date-divider .line {
+  width: 40%;
+  height: 1px;
+  background: #ccc;
+}
+
+.date-divider span {
+  color: #ccc;
+  font-size: 15px;
+}
+
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.message-box {
+  display: flex;
+  flex-direction: column;
+}
+.message-sender-box {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+
+.message-recipient-box {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.message-header {
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.message-header i {
+  font-size: 8px;
+}
+.line-message {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.line-message-sender {
+  justify-content: flex-end;
+}
+.line-message-recipient {
+  justify-content: flex-start;
+}
+.line-message .image-recipient,
+.line-message .image-sender {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.message-sender {
+  position: relative;
+  text-align: right;
+  background: rgb(247, 107, 28);
+  width: auto;
+  max-width: 80%;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  z-index: 1;
+}
+.message-recipient {
+  position: relative;
+  text-align: left;
+  width: auto;
+  max-width: 80%;
+  background: rgb(51, 51, 51);
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  z-index: 1;
+}
+
+.message-sender::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid rgb(247,107,28); 
+  transform: rotate(90deg);
+  z-index: -1;
+}
+.message-recipient::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid rgb(51,51,51); 
+  transform: rotate(270deg);
+  z-index: -1;
+}
+
+.message-body {
+  position: relative;
+  font-size: 16px;
+  white-space: pre-line;
+  width: 100%;
+  word-wrap: break-word;
+}
+.media-container {
+  width: 400px;
+  height: auto;
+  margin-left: -20px;
+  margin-top: -10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  z-index: 10;
+}
+.media-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  z-index: 10;
+}
+.media-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+
+
+
+
+/* ================================================ */
+.message-input-box {
+  height: 100px;
+
+}
+
+.message-input {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.message-input .emoji-box {
+  width: 50px;
+  height: 100%;
+  background: rgb(33,33, 33);
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid rgb(247, 107, 28);
+  border-top: 1px solid rgb(247, 107, 28);
+  border-radius: 10px 0px 0px 10px;
+  justify-content: center;
+}
+.message-input .emoji {
+  font-size: 25px;
+  height: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.textarea-border {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid rgb(247, 107, 28);
+  border-top: 1px solid rgb(247, 107, 28);
+  border-radius: 0px 10px 10px 0px;
+}
+.emoji-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  height: 100%;
+  resize: none;
+  background: transparent;
+  color: white;
+  background: rgb(33,33, 33);
+  outline: none;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.send-message {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.send-message .send {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 50%;
+  outline: none;
+  border: 1px solid rgb(247, 107, 28);
+  background: rgb(33,33, 33);
+  cursor: pointer;
+}
+.send-message .send i{
+  font-size: 25px;
+  color: rgb(247, 107, 28);
+}
+
+.send-message .send:hover {
+  background: rgb(51, 51, 51);
+}
+
+
+

@@ -1,0 +1,19 @@
+<div class="home">
+    <div class="search">
+        <input type="text" 
+            placeholder="Search" 
+            [(ngModel)]="query"
+            (input)="onSearchUser()"
+            >
+        <div *ngIf="searchUser.length > 0" class="search-suggestions">
+            <div *ngFor="let suggestion of searchUser" class="item"
+                (click)="navigationToUser(suggestion.discriminator)"
+            >
+                <p class="name">{{suggestion.firstName+" "+suggestion.lastName}}</p>
+                <p class="discriminator">{{"#"+suggestion.discriminator}}</p>       
+            </div>
+        </div>
+    </div>
+  
+
+</div>

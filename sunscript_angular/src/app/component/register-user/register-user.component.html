@@ -1,0 +1,129 @@
+<div class="register">
+    <div class="logo">
+        <img src="../../../assets/sunscript_logo.png" alt="">
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Register User</h1>
+            <div class="line"></div>
+        </div>
+        <div class="form-container">
+            <div class="step-indicator">
+                <div class="step-circle" [ngClass]="{'active': currentStep === 1, 'completed': currentStep > 1}">
+                    <ng-container *ngIf="currentStep > 1 || isStepCompleted(1)">
+                        <i class="fa-solid fa-check"></i>
+                    </ng-container>
+                    <ng-container *ngIf="currentStep === 1 && !isStepCompleted(1)">1</ng-container>
+                </div>
+                <div class="step-line" [ngClass]="{'active': currentStep > 1, 'completed': currentStep > 1}"></div>
+                
+                <div class="step-circle" [ngClass]="{'active': currentStep === 2, 'completed': currentStep > 2}">
+                    <ng-container *ngIf="currentStep > 2 || isStepCompleted(2)">
+                        <i class="fa-solid fa-check"></i>
+                    </ng-container>
+                    <ng-container *ngIf="currentStep <= 2 && !isStepCompleted(2)">2</ng-container>
+                </div>
+                <div class="step-line" [ngClass]="{'active': currentStep > 2, 'completed': currentStep > 2}"></div>
+                
+                <div class="step-circle" [ngClass]="{'active': currentStep === 3, 'completed': currentStep > 3}">
+                    <ng-container *ngIf="currentStep > 3 || isStepCompleted(3)">
+                        <i class="fa-solid fa-check"></i>
+                    </ng-container>
+                    <ng-container *ngIf="currentStep <= 3 && !isStepCompleted(3)">3</ng-container>
+                </div>
+                <div class="step-line" [ngClass]="{'active': currentStep > 3, 'completed': currentStep > 3}"></div>
+                
+                <div class="step-circle" [ngClass]="{'active': currentStep === 4, 'completed': currentStep > 4}">
+                    <ng-container *ngIf="currentStep > 4 || isStepCompleted(4)">
+                        <i class="fa-solid fa-check"></i>
+                    </ng-container>
+                    <ng-container *ngIf="currentStep <= 4 && !isStepCompleted(4)">4</ng-container>
+                </div>
+            </div>
+            <form action="" 
+                [formGroup]="register"
+                >
+            
+                <div class="col-form two-col" *ngIf="currentStep === 1">
+                    <div *ngFor="let field of formFields" class="input-item">
+                        <label for="{{field.for}}">{{field.label}}</label>
+                        <input 
+                        [type]="field.type" 
+                        [id]="field.id" 
+                        [formControlName]="field.formControlName" 
+                        [placeholder]="field.placeholder">
+                    </div>
+                </div>
+
+                <div class="col-form one-col" *ngIf="currentStep === 2">
+                    <div class="input-image">
+                        <label for="imageProfile">Image Profile</label>
+                        <div class="show-images">
+                            <div *ngIf="imageProfilePreview" class="image-preview">
+                                <img [src]="imageProfilePreview" alt="">
+                                <button (click)="removeImageProfile()">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div *ngIf="!imageProfilePreview" class="add-image" (click)="fileInput.click()">
+                            <input type="file" #fileInput (change)="onFileIMageProfile($event)" accept="image/*" style="display: none;">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+
+                    <div class="input-image-background">
+                        <label for="imageProfile">Image Background</label>
+                        <div class="show-images">
+                            <div *ngIf="imageBackgroundPreview" class="image-preview">
+                                <img [src]="imageBackgroundPreview" alt="">
+                                <button (click)="removeImageBackground()">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div *ngIf="!imageBackgroundPreview" class="add-image" (click)="fileInput.click()">
+                            <input type="file" #fileInput (change)="onFileImageBackground($event)" accept="image/*" style="display: none;">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>                    
+                </div>
+
+                <div class="col-form" *ngIf="currentStep === 3">
+                    <label for="bio">Bio</label>
+                    <div class="textarea-content">
+                        <textarea id="bio" formControlName="bio" placeholder="Write a brief description about yourself..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="col-form one-col" *ngIf="currentStep === 4">
+                    <div *ngFor="let field of formFieldsCredentials" class="input-item">
+                        <label for="{{field.for}}">{{field.label}}</label>
+                        <input 
+                        [type]="field.type" 
+                        [id]="field.id" 
+                        [formControlName]="field.formControlName" 
+                        [placeholder]="field.placeholder">
+                    </div>
+                </div>
+               
+                <div class="button-container">
+                    <button (click)="prevStep()" [disabled]="currentStep === 1">Previous</button>
+                    <button *ngIf="currentStep < 4" (click)="nextStep()">Next</button>
+                    <button *ngIf="currentStep === 4" (click)="submitForm()">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="line-end-container">
+            <div class="line-end"></div>
+        </div>
+        <div class="sec-login">
+            <p>Do have an account?</p>
+            <a [routerLink]="['/sunscript/login']" class="login-text-link">
+                <p>Login Youtube now</p>
+            </a>
+        </div>
+        
+    </div>
+</div>

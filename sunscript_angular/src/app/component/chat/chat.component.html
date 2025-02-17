@@ -1,0 +1,114 @@
+<div class="chat">
+
+  <div class="chat-header">
+    <div class="image-box">
+      <img class="image-recipient" [src]="imageUrlRecipient" alt="Recipient Profile Picture">
+      <div class="isOnline-circle">
+        <div [ngClass]="
+          {
+            'online': onlineUser, 
+            'offline': !onlineUser
+          }">
+      </div>
+      </div>
+    </div>
+    <div class="text">
+      <span class="username">{{recipient}}</span>
+      <span class="time" *ngIf="onlineUser">Online</span>  
+      <span class="time" *ngIf="!onlineUser">
+        Last seen {{formatLastSeenTime()}}
+      </span>
+    </div>
+  
+  </div>
+  
+  <div *ngIf="messages && messages.length > 0" class="chat-box" #messageContainer>
+    <div *ngFor="let group of getGroupedMessages()">
+      <div class="date-box">
+        <div class="date-divider">
+          <div class="line"></div>
+          <span>{{group[0]}}</span>
+          <div class="line"></div>
+        </div>
+      </div>
+     
+
+      <div *ngFor="let msg of group[1]"  [ngClass]="{'message-sender-box' : msg.sender === sender, 'message-recipient-box' : msg.sender !== sender}"
+      class="message-box"
+    >
+      <div class="message-header">
+        <strong *ngIf="msg.sender !== sender">{{ msg.sender }}</strong> 
+        <strong *ngIf="msg.sender === sender">{{ "you" }}</strong> 
+        <i class="fa-regular fa-sun"></i>
+        <span class="time">{{ msg.timestamp | date:'HH:mm'}}</span>
+      </div>
+      <div class="line-message"
+        [ngClass]="{'line-message-sender': msg.sender === sender, 'line-message-recipient': msg.sender !== sender}">
+        <img class="image-recipient" *ngIf="msg.sender !== sender" [src]="imageUrlRecipient" alt="Recipient Profile Picture">
+        <div 
+          [ngClass]="{'message-sender': msg.sender === sender, 'message-recipient': msg.sender !== sender}">
+          <div class="media-container" *ngIf="msg.mediaUrls?.length">
+            <div *ngIf="msg.mediaBlob?.length"> 
+               <div *ngFor="let media of msg.mediaBlob">
+                  <img *ngIf="msg.type === 'IMAGE'" class="image-message" [src]="media" class="media-image" alt="Media">
+                <source>
+                  <video *ngIf="msg.type === 'VIDEO'" controls>
+                    <source [src]="media">
+                  </video>
+               </div>
+            </div>
+          </div>
+          <div class="message-body" >
+            <p *ngIf="msg.content">{{ msg.content }}</p>
+          </div>
+        </div>
+        <img class="image-sender" *ngIf="msg.sender === sender" [src]="imageUrlSender" alt="Sender Profile Picture">
+      </div>
+      
+    </div>
+
+    </div>
+      
+  </div>
+  <div class="message-input-box">
+    <div class="message-input">
+      <div class="emoji-box">
+        <label for="file-input">
+          <button class="media-picker-btn" (click)="openFileMediaUrls(fileInputClick)">📸/🎥</button>
+        </label>
+      <input id="file-input" type="file" #fileInputClick (change)="handleFileInput($event)" accept="image/*,video/*" multiple style="display: none;">
+    
+        <!--<label for="document-input">
+          <button class="media-picker-btn"></button>
+        </label>
+        <input id="document-input" type="file" (change)="onFileSelected($event)" style="display: none;" accept=".pdf,.docx,.txt,.xls">
+      -->
+        <button class="emoji" (click)="toggleEmojiPicker()">😀</button>
+      </div>
+      <div class="textarea-border">
+        <div *ngIf="selectedFile.length > 0">
+          <h3>Skedarët e zgjedhur:</h3>
+          <ul>
+            <li *ngFor="let file of selectedFile; let i = index">
+              {{ file.name }}
+            </li>
+          </ul>
+        </div>
+        <textarea 
+          [(ngModel)]="content" 
+          placeholder="Write a message..."
+          (keydown)="handleKeydown($event)"
+          >
+        </textarea>
+        <div id="emoji-container" class="emoji-container" *ngIf="showEmojiPicker"></div>
+      </div>
+      <div class="send-message">
+        <button class="send" (click)="sendMessage()">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>  
+  </div>
+  
+</div>
+

@@ -1,0 +1,83 @@
+<div class="sunscript">
+    
+    <div class="side-bar">
+        <div class="item-box">
+
+            <img src="../../../assets/sunscript_logo.png" alt="" (click)="navigationToHome()">
+            <div *ngFor="let item of sideNavBar" class="item">
+                <a routerLink="{{item.link}}">
+                    <i class="{{item.icon}}"></i>
+                    <p>{{item.label}}</p>
+                </a>
+            </div>
+            <div class="chat" (click)="loadShowBoxChat()">
+                <i class="fa-brands fa-rocketchat"></i>
+            </div>
+            <input type="text" class="search-path"
+            placeholder="Search Path"
+            [(ngModel)]="navigate"
+            (keydown)="navigationSearch($event)"
+            >
+        </div> 
+    </div>
+    <div class="side-chat" [class.show]="showBoxChat">
+        <div class="div">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae aut tempore odit impedit doloremque culpa officia accusantium necessitatibus ex, error maxime incidunt exercitationem! Asperiores iusto similique, voluptate suscipit esse harum!
+        </div>
+    </div>
+    
+    <div class="line-div"></div>
+    
+    <div class="main">
+
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="line-div"></div>
+    
+    <div class="right-bar">
+        <div class="allFollowing">
+            <div *ngFor="let following of followingList" class="item">
+                <div class="desing" (click)="navigationToProfile(following.discriminator)">
+                    <img class="background" *ngIf="backgroundImagesUrl[following.discriminator]" [src]="backgroundImagesUrl[following.discriminator]" alt="">
+                    <div class="image-profile-box" >
+                        <img class="profile" *ngIf="profileImagesUrl[following.discriminator]" [src]="profileImagesUrl[following.discriminator]" alt="">
+                        <div class="isOnline-circle">
+                            <!--<div *ngIf="following.online === true || otherUserStatus[following.username]" class="online"></div>
+                            <div *ngIf="following.online === false || !otherUserStatus[following.username]" class="offline"></div>
+                        -->
+                        <div [ngClass]="{'online': following.online || otherUserStatus[following.username], 'offline': !following.online && !otherUserStatus[following.username]}"></div>
+
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p *ngIf="following.online === true">Online</p>
+                        <p *ngIf="following.online === false">Offline</p>
+
+                        <div class="text">
+                            <p class="name">{{following.firstName+" "+following.lastName}}</p>
+                            <p class="discriminator">{{"#"+following.discriminator}}</p>       
+                        </div>
+                        <div class="follow">
+                            <div class="col">
+                                <p class="count">{{following.countFollowers}}</p>
+                                <p class="text-f">Followers</p>
+                            </div>
+                            <div class="col">
+                                <p class="count">{{following.countFollowing}}</p>
+                                <p class="text-f">Following</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="follow-box">
+                    <div class="btn-box">
+                        <button (click)="btnUserFollow(following)" *ngIf="!following.isFollowed && !following.isFollowBack" class="btnFollow">Follow</button>
+                        <button (click)="btnUserFollow(following)" *ngIf="!following.isFollowed && following.isFollowBack" class="btnFollow">Follow Back</button>
+                        <button (click)="btnUserUnfollow(following)" *ngIf="following.isFollowed" class="btnUnfollow">Unfollow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

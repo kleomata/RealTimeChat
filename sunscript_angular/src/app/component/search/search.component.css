@@ -1,0 +1,92 @@
+.search {
+    padding: 50px;
+}
+.search .search-input input{
+    width: 400px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    border-bottom: 1px solid white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.search .search-suggestions {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+.search .item{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: flex-end;
+    cursor: pointer;
+    padding: 10px;
+    height: 100px;
+}
+.search .item .desing .text {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.search .item:hover{
+    background: #222222;
+}
+.search .item:hover svg path{
+    fill: #222222;
+}
+
+.search .name {
+    color: white;
+    font-size: 20px;
+    z-index: 1;
+    font-weight: bold;
+}
+.search .discriminator {
+    color: #ccc;
+    font-size: 15px;
+    font-weight: bold;
+    z-index: 1;
+}
+.search img {
+    width: 50px;
+    height: 50px;
+}
+.search .search-suggestions .item .desing {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 100%;
+    width: 70%;
+    align-items: center;
+}
+.search .item .desing .profile {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    z-index: 1;
+    border: 10px solid #0f0f0f;
+    margin-right: 30px;
+}
+.search .item:hover .desing .profile {
+    border: 10px solid #222222;
+}
+.search .item .desing .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: .6;
+    object-fit: cover;
+    object-position: center;
+}

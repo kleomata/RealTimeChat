@@ -1,0 +1,393 @@
+.register {
+    width: 100vw;
+    height: 100vh;
+    background: #0f0f0f;
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register .logo {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+}
+.register .logo img{
+    height: 120px;
+    width: auto;
+}
+.register .container {
+    width: 550px;
+    height: 700px;
+    background: linear-gradient(rgb(250, 217, 97, .6) 0%, rgb(247, 107, 28,.6) 100%);
+    border-radius: 20px;
+    padding: 30px;
+}
+.register .container .header {
+    margin-bottom: 30px;
+}
+.container .header h1 {
+    font-size: 35px;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+}
+.container .header .line {
+    margin-top: 5px;
+    height: 1px;
+    background: white;
+    width: 30%;
+}
+.register .container form {
+    width: 100%;
+    height: auto;
+}
+
+/* Step Circle Number */
+.step-indicator {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.step-indicator .step-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(247, 107, 28, .3);
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    z-index: 1;
+}
+.step-indicator .step-circle i {
+    color: white;
+}
+
+.step-indicator .step-circle.active {
+    border: 2px solid rgb(247, 107, 28);
+    background: rgba(247, 107, 28, .3);
+}
+.step-indicator .step-circle.completed {
+    background: rgb(247, 107, 28);
+    border: 2px solid rgb(247, 107, 28);
+}
+
+.step-indicator .step-line {
+    height: 4px;
+    background: rgba(247, 107, 28, .3);
+    flex: 1;
+}
+
+.step-indicator .step-line.completed {
+    background: rgb(247, 107, 28);
+}
+
+.step-circle:last-child + .step-line {
+    display: none;
+}
+
+
+/* ///// Form Desing /////// */
+.container .form-container form {
+    height: 445px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form-container .col-form {
+    color: white;
+}
+.form-container .one-col {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.form-container .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.form-container .input-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+.form-container .input-item label {
+    font-weight: bold;
+}
+.form-container .input-item input {
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    padding: 10px 15px;
+    color: white;
+}
+
+
+.form-register .button-container {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/* ======= Image Step =======  */
+.form-container form .col-form .input-image {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.form-container form .col-form .input-image label {
+    font-weight: bold;
+    margin-right: 50px;
+}
+.form-container form .col-form .input-image .image-preview {
+    width: 180px; 
+    height: 180px;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; 
+    position: relative;
+    cursor: pointer;
+    transition: .3s all ease;
+    border-radius: 50%;
+    border: 2px solid #ff6a00;
+}
+.form-container form .col-form .input-image .image-preview:hover {
+    transition: .3s all ease;
+    border: 2px solid rgb(255, 106, 0);
+}
+.form-container form .col-form .input-image .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+.form-container form .col-form .input-image .image-preview button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: none;
+    background: rgba(255, 106, 0, .3);
+    opacity: 0;
+    transition: .3s all ease;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+}
+.form-container form .col-form .input-image .image-preview:hover button {
+    opacity: 1;
+} 
+.form-container form .col-form .input-image .add-image {
+    width: 180px;
+    height: 180px;
+    border: 2px dashed #ff6a00;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    cursor: pointer;
+    transition: .3s all ease;
+    border-radius: 50%;
+}
+.form-container form .col-form .input-image .add-image i {
+    font-size: 25px;
+    color: #ff6a00;
+    transition: .3s all ease;
+}
+.form-container form .col-form .input-image .add-image:hover {
+    background: rgba(255, 106, 0, .3);
+    transition: .3s all ease;
+}
+.form-container form .col-form .input-image .add-image:hover i {
+    color: white;
+    transition: .3s all ease;
+}
+
+
+
+.form-container form .col-form .input-image-background {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-container form .col-form .input-image-background label {
+    font-weight: bold;
+}
+.form-container form .col-form .input-image-background .image-preview {
+    width: 100%; 
+    height: 150px;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; 
+    position: relative;
+    cursor: pointer;
+    transition: .3s all ease;
+    border-radius: 20px;
+    border: 2px solid #ff6a00;
+}
+.form-container form .col-form .input-image-background .image-preview:hover {
+    transition: .3s all ease;
+    border: 2px solid rgb(255, 106, 0);
+}
+.form-container form .col-form .input-image-background .image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+}
+.form-container form .col-form .input-image-background .image-preview button {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border: none;
+    outline: none;
+    background: rgba(255, 106, 0, .3);
+    opacity: 0;
+    transition: .3s all ease;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+.form-container form .col-form .input-image-background .image-preview:hover button {
+    opacity: 1;
+} 
+.form-container form .col-form .input-image-background .add-image {
+    width: 100%;
+    height: 150px;
+    border: 2px dashed #ff6a00;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    cursor: pointer;
+    transition: .3s all ease;
+    border-radius: 20px;
+}
+.form-container form .col-form .input-image-background .add-image i {
+    font-size: 25px;
+    color: #ff6a00;
+    transition: .3s all ease;
+}
+.form-container form .col-form .input-image-background .add-image:hover {
+    background: rgba(255, 106, 0, .3);
+    transition: .3s all ease;
+}
+.form-container form .col-form .input-image-background .add-image:hover i {
+    color: white;
+    transition: .3s all ease;
+}
+
+/* ============  Bio Textarea  =============== */
+.form-container form .col-form label {
+    font-weight: bold;
+}
+.form-container form .col-form .textarea-content {
+    border: none;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    padding: 10px;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.form-container form .col-form .textarea-content textarea {
+    background: transparent;
+    resize: none;
+    width: 100%;
+    height: 300px;
+    border: none;
+    outline: none;
+    color: white;;
+}
+
+
+/*=======================================*/
+
+/* ============= Button ==========*/
+.form-container form .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.form-container form .button-container button {
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    color: white;
+    background: rgb(247, 107, 28, .6);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    transition: .5s all ease;
+    font-weight: bold;
+}
+
+.form-container form .button-container button:hover{
+    background: rgb(247, 107, 28);
+    box-shadow: 0px 0px 10px rgb(247, 107, 28);
+}
+  
+
+
+
+.register .container .line-end-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.container .line-end-container .line-end {
+    width: 90%;
+    height: 1px;
+    background: white;
+}
+/* Section login in register */
+.sec-login{
+    height: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.login-text-link{
+    text-decoration: none;
+    color: white;
+}
+.login-text-link p{
+    color: white;
+}
+.login-text-link p:hover{
+    color: white;
+    text-shadow: 0px 0px 10px white;
+}

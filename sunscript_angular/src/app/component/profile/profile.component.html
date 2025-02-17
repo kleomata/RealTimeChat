@@ -1,0 +1,34 @@
+<div *ngIf="profile" class="profile">
+    <div *ngIf="backgroundImageUrl" class="imageBackgound">
+        <img [src]="backgroundImageUrl" alt="">
+    </div>
+    <div *ngIf="profileImageUrl" class="imageProfile">
+        <img [src]="profileImageUrl" alt="">
+    </div>
+    
+
+
+    <h1 class="name">{{profile.firstName + " "+profile.lastName}}</h1>
+    <h3 class="username">{{profile.username}}</h3>
+    <h3 class="discriminator">{{profile.discriminator}}</h3>
+    <p class="address">Adress: <i>{{" "+profile.country+", "+profile.city+", "+profile.address}}</i></p>
+    <p class="birthday">Birthday: {{profile.birthday}}</p>
+    <p class="email">Email: {{profile.email}}</p>
+    <p class="phone">Phone: {{profile.phone}}</p>
+    <div class="gender">
+        <p *ngIf="profile.gender === 'Male'" class="gender"  style="color: blue;">
+            {{profile.gender+" "}}<i class="fa-solid fa-mars"></i>
+        </p>
+        <p *ngIf="profile.gender === 'Female'" class="gender" style="color: rgb(255, 49, 83);">
+            {{profile.gender+" "}}<i class="fa-solid fa-venus"></i>
+        </p>
+    </div>
+
+    <div class="bio">
+        <h4>Bio username</h4>
+        <textarea readonly>{{profile.bio}}</textarea>
+    </div>
+
+   
+   
+</div>

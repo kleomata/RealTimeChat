@@ -1,0 +1,36 @@
+<div class="register">
+    <div class="logo">
+        <img src="../../../assets/sunscript_logo.png" alt="">
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Login User</h1>
+            <div class="line"></div>
+        </div>
+        <div class="form-container">
+            <form action="" 
+                [formGroup]="loginForm" (ngSubmit)="login()"
+                >
+
+                <input type="text" formControlName="username">
+                <input type="password" formControlName="password">
+
+
+                <div class="button-container">
+                    <button type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="line-end-container">
+            <div class="line-end"></div>
+        </div>
+        <div class="sec-login">
+            <p>Do have an account?</p>
+            <a [routerLink]="['/sunscript/register']" class="login-text-link">
+                <p>Login Youtube now</p>
+            </a>
+        </div>
+        
+    </div>
+</div>

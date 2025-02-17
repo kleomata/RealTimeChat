@@ -1,0 +1,45 @@
+.home {
+    padding: 50px;
+}
+.home .search input{
+    width: 400px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    border-bottom: 1px solid white;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.home .search .search-suggestions {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #222222;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+.home .search .item{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: flex-end;
+    cursor: pointer;
+    padding: 10px;
+}
+.home .search .item:hover{
+    background: #111111;
+}
+.home .search .name {
+    color: white;
+    font-size: 16px;
+}
+.home .search .discriminator {
+    color: #ccc;
+    font-size: 15px;
+    font-weight: bold;
+}

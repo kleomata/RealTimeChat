@@ -1,0 +1,155 @@
+.register {
+    width: 100vw;
+    height: 100vh;
+    background: #0f0f0f;
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register .logo {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+}
+.register .logo img{
+    height: 120px;
+    width: auto;
+}
+.register .container {
+    width: 550px;
+    height: 700px;
+    background: linear-gradient(rgb(250, 217, 97, .6) 0%, rgb(247, 107, 28,.6) 100%);
+    border-radius: 20px;
+    padding: 30px;
+}
+.register .container .header {
+    margin-bottom: 30px;
+}
+.container .header h1 {
+    font-size: 35px;
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+}
+.container .header .line {
+    margin-top: 5px;
+    height: 1px;
+    background: white;
+    width: 30%;
+}
+.register .container form {
+    width: 100%;
+    height: auto;
+}
+
+
+/* ///// Form Desing /////// */
+.container .form-container form {
+    height: 445px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.form-container .col-form {
+    color: white;
+}
+.form-container .one-col {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.form-container .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.form-container .input-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+.form-container .input-item label {
+    font-weight: bold;
+}
+.form-container .input-item input {
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    padding: 10px 15px;
+    color: white;
+}
+
+
+.form-register .button-container {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* ============= Button ==========*/
+.form-container form .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.form-container form .button-container button {
+    height: 40px;
+    width: 100px;
+    cursor: pointer;
+    color: white;
+    background: rgb(247, 107, 28, .6);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    transition: .5s all ease;
+    font-weight: bold;
+}
+
+.form-container form .button-container button:hover{
+    background: rgb(247, 107, 28);
+    box-shadow: 0px 0px 10px rgb(247, 107, 28);
+}
+  
+
+
+
+.register .container .line-end-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.container .line-end-container .line-end {
+    width: 90%;
+    height: 1px;
+    background: white;
+}
+/* Section login in register */
+.sec-login{
+    height: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.login-text-link{
+    text-decoration: none;
+    color: white;
+}
+.login-text-link p{
+    color: white;
+}
+.login-text-link p:hover{
+    color: white;
+    text-shadow: 0px 0px 10px white;
+}

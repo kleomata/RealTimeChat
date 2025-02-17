@@ -1,0 +1,97 @@
+.user {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 50px;
+}
+.user .imageBackgound {
+    width: 100%;
+    height: 200px;
+}
+.user .imageBackgound img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.user .imageProfile {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: -100px;
+    border: 10px solid #0f0f0f;
+    margin-left: 20px;
+}
+.user .imageProfile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+.user .head {
+    display: flex;
+    flex-direction: row;
+}
+.user .head .name-box {
+    width: 40%;
+}
+.user .head .follow-box {
+    width: 60%;
+}
+.head .follow-box .followers {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.head .follow-box .btn-box{
+    margin-top: 10px;
+    display: flex;
+}
+
+.follow-box .btn-box .btnFollow,
+.follow-box .btn-box .btnUnfollow {
+    outline: none;
+    padding: 10px 0px;
+    width: 120px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.follow-box .btn-box .btnFollow {
+    background: rgb(247, 107, 28);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border: 1px solid rgb(247, 107, 28);
+}
+.follow-box .btn-box .btnUnfollow {
+    background: #0f0f0f;
+    border: none;
+    color: rgb(247, 107, 28);
+    font-weight: bold;
+    border: 1px solid rgb(247, 107, 28);
+}
+
+.user .discriminator {
+    color: #ccc;
+}
+.user .gender {
+    margin-bottom: 20px;
+}
+.user .bio h4 {
+    margin-bottom: 5px;
+}
+.user .bio textarea {
+    resize: none;
+    width: 100%;
+    max-height: 300px;
+    height: auto;
+    min-height: 200px;
+    background: transparent;
+    color: white;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+}
